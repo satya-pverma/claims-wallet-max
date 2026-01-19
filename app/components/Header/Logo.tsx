@@ -7,8 +7,8 @@ export function Logo() {
       <Image
         src="/Juice-2024-Logo-2000x800.png"
         alt="Juice"
-        width={90}
-        height={33}
+        width={80}
+        height={29}
         priority
       />
     </Link>
