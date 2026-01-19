@@ -8,6 +8,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --header-max-width: 1400px;
+  --header-padding: 2rem;
 
   /* override font tokens */
   --font-sans: "Montserrat", sans-serif;
