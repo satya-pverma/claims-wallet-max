@@ -12,7 +12,7 @@ const inputVariants = cva(
         default: 'border-gray-200 dark:border-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-200',
         error: 'border-red-500 focus:border-red-500 focus:ring-2 focus:ring-red-200',
       },
-      size: {
+      inputSize: {
         sm: 'px-3 py-1.5 text-sm',
         md: 'px-4 py-2',
         lg: 'px-4 py-3 text-xl',
@@ -20,13 +20,13 @@ const inputVariants = cva(
     },
     defaultVariants: {
       variant: 'default',
-      size: 'md',
+      inputSize: 'md',
     },
   }
 );
 
 interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement>,
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'prefix'>,
     VariantProps<typeof inputVariants> {
   label?: string;
   error?: string;
@@ -37,7 +37,7 @@ interface InputProps
 
 export function Input({
   variant,
-  size,
+  inputSize,
   className,
   label,
   error,
@@ -64,7 +64,7 @@ export function Input({
         )}
         <input
           className={cn(
-            inputVariants({ variant: error ? 'error' : variant, size }),
+            inputVariants({ variant: error ? 'error' : variant, inputSize }),
             prefix && 'pl-8',
             suffix && 'pr-8',
             className
